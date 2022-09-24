@@ -1,3 +1,4 @@
+ //  Game of rock paper scissors 
 
 let rock, paper, scissors
 
