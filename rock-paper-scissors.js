@@ -2,6 +2,17 @@
 
 let rock, paper, scissors
 
+let player1 = 0;
+let computer = 0;
+
+
+
+let button = document.querySelector(".button").addEventListener('click',playRound)
+let button2 = document.querySelector(".button2").addEventListener('click',playRound)
+let button3 = document.querySelector(".button3").addEventListener('click',playRound)
+
+
+
 
 function playRound(){
 
@@ -10,42 +21,65 @@ const computerSelection = getComputerChoice()
 
 
 if(playerSelection === "rock" && computerSelection === "rock"){
-    return 'TIE Game!'
+    let tie = document.querySelector('h1').innerText ="TIE Game"
+    return 0;
 
 }
 else if (playerSelection === "rock" && computerSelection === "paper"){
-    return 'You Lose. Paper beats Rock.'
+    let lose = document.querySelector('h1').innerText ="You Lose. Paper beats Rock"
+    computer++
 }
 
 else if (playerSelection === "rock" && computerSelection === "scissors"){
-    return 'You Win! Rock beats Scissors.'
+    let win = document.querySelector('h1').innerText ="You Win! Rock beats Scissors"
+    player1++
 }
 else if(playerSelection === "paper" && computerSelection === "rock"){
-    return 'You Win! Paper beats Rock.'
+    let win = document.querySelector('h1').innerText ="You Win! Paper beats Rock"
+    player1++
 }
 else if (playerSelection === "paper" && computerSelection === "paper"){
-    return 'TIE Game!'
+    let tie = document.querySelector('h1').innerText ="TIE Game"
+    return 0;
 }
 
 else if (playerSelection === "paper" && computerSelection === "scissors"){
-    return 'You Lose! Scissors beats Paper.'
+    let lose = document.querySelector('h1').innerText ="You Lose! Scissors beats Paper"
+    computer++
 }
 else if(playerSelection === "scissors" && computerSelection === "rock"){
-    return 'You Lose! Rock beats Scissors.'
+    let lose = document.querySelector('h1').innerText ="You Lose! Rock beats Scissors"
+    computer++
 }
 else if (playerSelection === "scissors" && computerSelection === "paper"){
-    return 'You Won! Scissors beats Paper.'
+    let win = document.querySelector('h1').innerText ="You Won! Scissors beats Paper."
+    player1++
 }
 
 else if (playerSelection === "scissors" && computerSelection === "scissors"){
-    return 'TIE Game!'
+    let tie = document.querySelector('h1').innerText ="TIE Game"
+    return 0;
 }
 
 else {
     
     document.querySelector('h1').innerHTML = "Enter a Valid Input."
 }
+console.log(player1)
+console.log(computer)
 
+if(computer === 5 || player1 ===5){
+    let result= document.querySelector('#result')
+    if(player1 === 5){
+        result.innerText = "You Won"
+    }
+    else if(computer === 5){
+        result.innerText = " Computer Won"
+    }
+    else{
+        result.innerText = "You Lose"
+    }
+}
 
 }
 
@@ -69,54 +103,6 @@ function getComputerChoice(){
 
 
 
-function game(){
-    let player1 = 0
-    let computer = 0
-
-    let numberPlays = Number(prompt('How many times do you want to play?')) 
-    for (let i = 0; i < numberPlays; i++) {
-        let result = playRound()
-        
-        
-        if(result === 'TIE Game!'){
-            player1 +=0
-        }
-        else if(result === 'You Lose. Paper beats Rock.'){
-            computer++
-        }
-        else if(result === 'You Win! Rock beats Scissors.'){
-            player1++
-        }
-        else if(result === 'You Win! Paper beats Rock.'){
-            player1++
-        }
-        else if(result === 'You Lose! Scissors beats Paper.'){
-            computer++
-        }
-        else if(result === 'You Lose! Rock beats Scissors.'){
-            computer++
-        }
-        else if(result === 'You Won! Scissors beats Paper.'){
-            player1++
-        }
-        else{
-            player += 0
-        }
-
-        if(numberPlays === (i+1)){
-            if(player1 > computer)
-                alert(`You Won! Out of ${numberPlays} games, you got ${player1} points.`)
-            else if ( player1 < computer){
-                alert(`You Lose! Out of ${numberPlays} games, you got ${player1} points while computer got ${computer} points.`)
-            }
-            else{
-                alert('TIE Game!')
-            }
-        }
-        
-    }
-    
    
-}
 
-game()
+
